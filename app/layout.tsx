@@ -4,6 +4,7 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Header />
           <main>
             {children} {modal}
+             <Toaster position="top-right" />
           </main>
 
           <Footer />

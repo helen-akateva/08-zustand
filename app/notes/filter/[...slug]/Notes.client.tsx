@@ -1,7 +1,5 @@
 "use client";
 
-import Modal from "@/components/Modal/Modal";
-import NoteForm from "@/components/NoteForm/NoteForm";
 import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
@@ -56,7 +54,7 @@ export default function NotesClientFilter({ tag }: NotesClientProps) {
             onPageChange={handlePageChange}
           />
         )}
-       <Link href="/notes/action/create">Create note +</Link>
+        <Link href="/notes/action/create">Create note +</Link>
       </header>
 
       {data?.notes && data.notes.length > 0 ? (
@@ -64,7 +62,6 @@ export default function NotesClientFilter({ tag }: NotesClientProps) {
       ) : (
         <p>No notes found</p>
       )}
-
     </div>
   );
 }

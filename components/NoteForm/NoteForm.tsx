@@ -20,7 +20,7 @@ export default function NoteForm() {
       queryClient.invalidateQueries({ queryKey: ["notes"] });
       toast.success("Note created successfully!");
       clearDraft();
-      router.push('/notes/filter/all');
+      router.push("/notes/filter/all");
     },
     onError: () => toast.error("Error creating note."),
   });
@@ -28,7 +28,7 @@ export default function NoteForm() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (draft.title.trim().length < 5) {
+    if (!draft.title || draft.title.trim().length < 5) {
       toast.error("Title: at least 5 characters.");
       return;
     }
@@ -37,7 +37,7 @@ export default function NoteForm() {
   };
 
   const handleCancel = () => {
-    router.push('/notes/filter/all');
+    router.push("/notes/filter/all");
   };
 
   return (
@@ -66,7 +66,7 @@ export default function NoteForm() {
           className={css.textarea}
           value={draft?.content || ""}
           onChange={(e) => setDraft({ content: e.target.value })}
-          maxLength={500}
+          maxLength={350}
         />
       </div>
 
