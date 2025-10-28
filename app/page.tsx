@@ -1,9 +1,16 @@
+import Image from 'next/image';
 import css from './Home.module.css';
 
 export default function Home() {
   return <main className={css.main}>
   <div className={css.container}>
-    <h1 className={css.title}>Welcome to NoteHub</h1>
+      <h1 className={css.title}>Welcome to NoteHub</h1>
+         <Image
+          src="https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"
+          alt="Notehub"
+          width={600}
+          height={600}
+        />
     <p className={css.description}>
       NoteHub is a simple and efficient application designed for managing
       personal notes. It helps keep your thoughts organized and accessible
