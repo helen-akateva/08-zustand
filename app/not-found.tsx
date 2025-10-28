@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import css from "./Home.module.css";
 
@@ -13,7 +11,7 @@ export const metadata: Metadata = {
     title: "Page Not Found — NoteHub",
     description:
       "This page could not be found on NoteHub. Return to the homepage to continue exploring your notes.",
-    url: "https://notehub-app.vercel.app/404", 
+    url: "https://notehub-app.vercel.app/404",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
