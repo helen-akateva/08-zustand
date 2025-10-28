@@ -18,18 +18,18 @@ export default function NoteForm() {
     mutationFn: () => createNote(draft),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["notes"] });
-      toast.success("Note created!");
+      toast.success("Note created successfully!");
       clearDraft();
       router.back();
     },
-    onError: () => toast.error("Failed to create note."),
+    onError: () => toast.error("Error creating note."),
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (draft.title.trim().length < 3) {
-      toast.error("Title must be at least 3 characters long.");
+    if (draft.title.trim().length < 5) {
+      toast.error("Title: at least 5 characters.");
       return;
     }
 
@@ -52,8 +52,8 @@ export default function NoteForm() {
           value={draft?.title || ""}
           onChange={(e) => setDraft({ title: e.target.value })}
           required
-          minLength={3}
-          maxLength={50}
+          minLength={5}
+          maxLength={75}
         />
       </div>
 
