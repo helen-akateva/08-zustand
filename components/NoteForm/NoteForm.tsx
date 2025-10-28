@@ -20,7 +20,7 @@ export default function NoteForm() {
       queryClient.invalidateQueries({ queryKey: ["notes"] });
       toast.success("Note created successfully!");
       clearDraft();
-      router.back();
+      router.push('/notes/filter/all');
     },
     onError: () => toast.error("Error creating note."),
   });
@@ -37,7 +37,7 @@ export default function NoteForm() {
   };
 
   const handleCancel = () => {
-    router.back();
+    router.push('/notes/filter/all');
   };
 
   return (
