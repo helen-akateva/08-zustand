@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useDebounce } from "use-debounce";
 import { NoteTag } from "@/types/note";
 import css from "./NotesPage.module.css";
+import Link from "next/link";
 
 interface NotesClientProps {
   tag: NoteTag | "all";
@@ -19,7 +20,6 @@ interface NotesClientProps {
 export default function NotesClientFilter({ tag }: NotesClientProps) {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [debouncedSearch] = useDebounce(search, 500);
 
   const { data } = useQuery({
@@ -56,9 +56,7 @@ export default function NotesClientFilter({ tag }: NotesClientProps) {
             onPageChange={handlePageChange}
           />
         )}
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
-          Create note +
-        </button>
+       <Link href="/notes/action/create">Create note +</Link>
       </header>
 
       {data?.notes && data.notes.length > 0 ? (
@@ -67,11 +65,6 @@ export default function NotesClientFilter({ tag }: NotesClientProps) {
         <p>No notes found</p>
       )}
 
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <NoteForm onCancel={() => setIsModalOpen(false)} />
-        </Modal>
-      )}
     </div>
   );
 }
